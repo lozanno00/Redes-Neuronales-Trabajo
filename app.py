@@ -40,16 +40,19 @@ def index():
         try:
             # Cargar MNIST y compilar modelo fijo solo una vez por sesión
             if 'model_acc' not in session:
+                # 1. Carga y Prepara los Datos
                 (x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
                 x_train = x_train.reshape(-1, 28*28).astype('float32') / 255.0
                 x_test = x_test.reshape(-1, 28*28).astype('float32') / 255.0
+                # 2. "Compila" tu Arquitectura
                 model = compile_model("Dense(256, relu) -> Dense(128, relu) -> Dense(10, softmax)", input_shape=(28*28,))
+                # 3. Configura y Entrena
                 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
                 model.fit(x_train, y_train, epochs=1, batch_size=128, verbose=0)
+                # 4. Evalúa el Rendimiento
                 loss, acc = model.evaluate(x_test, y_test, verbose=0)
                 session['model_acc'] = acc
-                # Guarda pesos en disco para reutilizar
-                model.save_weights('static/model_weights.weights.h5')  # Cambia a .weights.h5
+                model.save_weights('static/model_weights.weights.h5')
             else:
                 # Cargar modelo y pesos
                 model = compile_model("Dense(256, relu) -> Dense(128, relu) -> Dense(10, softmax)", input_shape=(28*28,))
