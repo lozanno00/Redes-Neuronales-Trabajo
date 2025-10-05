@@ -1,8 +1,7 @@
 # Redes-Neuronales-Trabajo
 
   ## Descripcion
-.Este proyecto desarrolla una aplicación para el reconocimiento de dígitos manuscritos mediante una Red Neuronal Convolucional (CNN) entrenada con el conjunto de datos MNIST. La aplicación permite cargar o arrastrar imágenes de dígitos dibujados (por ejemplo, en Paint), predecir el número utilizando un modelo de TensorFlow/Keras y subir dichas imágenes a Firebase Storage, obteniendo una URL pública. La interfaz gráfica está construida con Tkinter y complementada con tkinterdnd2 para habilitar la funcionalidad de arrastrar y soltar.
-
+.Este proyecto desarrolla una aplicación para el reconocimiento de dígitos manuscritos mediante una Red Neuronal Convolucional (CNN) entrenada con el conjunto de datos MNIST. La aplicación permite cargar o arrastrar imágenes de dígitos dibujados (por ejemplo, en Paint), predecir el número utilizando un modelo de TensorFlow/Keras y subir dichas imágenes a Firebase Storage, obteniendo una URL pública. La interfaz gráfica está construida con Flask. 
   ## Caracteristicas
 .Interfaz gráfica interactiva con soporte para arrastrar y soltar, además de carga manual de imágenes.
 
